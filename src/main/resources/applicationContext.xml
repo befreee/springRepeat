@@ -13,7 +13,9 @@
 
     <bean id="musicPlayer"
           class="ru.ostretsov.repeatSpring.MusicPlayer">
-        <constructor-arg ref="musicBean"/>
+        <property name="music" ref="musicBean"/>
+        <property name="name" value="SonyWalkman"/>
+        <property name="volume" value="50"/>
     </bean>
 
 </beans>
