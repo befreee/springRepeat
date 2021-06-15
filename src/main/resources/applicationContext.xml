@@ -9,13 +9,21 @@
 
     <context:property-placeholder location="classpath:musicPlayer.properties"/>
 
-    <bean id="musicBean"
-          class="ru.ostretsov.repeatSpring.PopMusic">
-    </bean>
+
+    <bean id="popMusic" class="ru.ostretsov.repeatSpring.PopMusic"/>
+    <bean id="rockMusic" class="ru.ostretsov.repeatSpring.RockMusic"/>
+    <bean id="classicalMusic" class="ru.ostretsov.repeatSpring.ClassicalMusic"/>
+
 
     <bean id="musicPlayer"
           class="ru.ostretsov.repeatSpring.MusicPlayer">
-        <property name="music" ref="musicBean"/>
+        <property name="musicList">
+            <list>
+                <ref bean="popMusic"/>
+                <ref bean="rockMusic"/>
+                <ref bean="classicalMusic"/>
+            </list>
+        </property>
         <property name="name" value="${musicPlayer.name}"/>
         <property name="volume" value="${musicPlayer.volume}"/>
     </bean>
