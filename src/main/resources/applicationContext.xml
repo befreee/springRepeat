@@ -16,7 +16,8 @@
 
 
     <bean id="musicPlayer"
-          class="ru.ostretsov.repeatSpring.MusicPlayer">
+          class="ru.ostretsov.repeatSpring.MusicPlayer"
+          scope="prototype">
         <property name="musicList">
             <list>
                 <ref bean="popMusic"/>
