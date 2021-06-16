@@ -12,12 +12,13 @@
 
     <bean id="popMusic" class="ru.ostretsov.repeatSpring.PopMusic"/>
     <bean id="rockMusic" class="ru.ostretsov.repeatSpring.RockMusic"/>
-    <bean id="classicalMusic" class="ru.ostretsov.repeatSpring.ClassicalMusic"/>
+    <bean id="classicalMusic" class="ru.ostretsov.repeatSpring.ClassicalMusic"
+          init-method="doMyInit"
+          destroy-method="doMyDestroy"/>
 
 
     <bean id="musicPlayer"
-          class="ru.ostretsov.repeatSpring.MusicPlayer"
-          scope="prototype">
+          class="ru.ostretsov.repeatSpring.MusicPlayer">
         <property name="musicList">
             <list>
                 <ref bean="popMusic"/>
