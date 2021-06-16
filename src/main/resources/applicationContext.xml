@@ -14,7 +14,8 @@
     <bean id="rockMusic" class="ru.ostretsov.repeatSpring.RockMusic"/>
     <bean id="classicalMusic" class="ru.ostretsov.repeatSpring.ClassicalMusic"
           init-method="doMyInit"
-          destroy-method="doMyDestroy"/>
+          destroy-method="doMyDestroy"
+          factory-method="getClassicalMusic"/>
 
 
     <bean id="musicPlayer"
