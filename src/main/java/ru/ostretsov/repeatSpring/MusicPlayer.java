@@ -2,6 +2,7 @@ package ru.ostretsov.repeatSpring;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 import sun.font.DelegatingShape;
 
@@ -9,7 +10,21 @@ import java.util.Random;
 
 @Component
 public class MusicPlayer {
+    @Value("${musicPlayer.volume}")
+    private int volume;
+    @Value("${musicPlayer.name}")
+    private String name;
+
     private ClassicalMusic classicalMusic;
+
+    public int getVolume() {
+        return volume;
+    }
+
+    public String getName() {
+        return name;
+    }
+
     private RockMusic rockMusic;
     private PopMusic popMusic;
 
