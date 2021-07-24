@@ -1,5 +1,7 @@
 package ru.ostretsov.repeatSpring;
 
+import java.util.List;
+
 public interface Music {
-   public String getSong();
+    List<String> getSongs();
 }
