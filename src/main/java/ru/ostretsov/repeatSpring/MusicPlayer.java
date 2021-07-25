@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 import sun.font.DelegatingShape;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 
@@ -15,10 +17,7 @@ public class MusicPlayer {
     @Value("${musicPlayer.name}")
     private String name;
 
-    private ClassicalMusic classicalMusic;
-    private RockMusic rockMusic;
-    private PopMusic popMusic;
-
+    List<Music> musicList;
 
 
     public int getVolume() {
@@ -30,21 +29,12 @@ public class MusicPlayer {
     }
 
 
-    public MusicPlayer(ClassicalMusic classicalMusic, RockMusic rockMusic, PopMusic popMusic) {
-        this.classicalMusic = classicalMusic;
-        this.rockMusic = rockMusic;
-        this.popMusic = popMusic;
+    public MusicPlayer(List<Music> musicList) {
+        this.musicList= musicList;
     }
 
-    public void playMusic(MusicGenre musicGenre) {
+    public String playMusic() {
         Random random = new Random();
-        int randomNumber = random.nextInt(3);
-        if (musicGenre == MusicGenre.CLASSICAL) {
-            System.out.println(classicalMusic.getSongs().get(randomNumber));
-        } else if (musicGenre == MusicGenre.ROCK) {
-            System.out.println(rockMusic.getSongs().get(randomNumber));
-        } else {
-            System.out.println(popMusic.getSongs().get(randomNumber));
-        }
+        return "Playing " + musicList.get(random.nextInt(musicList.size())).getSong();
     }
 }

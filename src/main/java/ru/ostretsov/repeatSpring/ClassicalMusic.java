@@ -7,18 +7,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-@Scope("prototype")
 public class ClassicalMusic  implements Music{
-    private List<String> list = new ArrayList<>();
-
-    {
-        list.add("Hungarian Rhapsody");
-        list.add("Simphony #5");
-        list.add("Capella");
-    }
 
     @Override
-    public List<String> getSongs() {
-        return list;
+    public String getSong() {
+        return "Simphony #5";
     }
 }

@@ -7,16 +7,9 @@ import java.util.List;
 
 
 public class RockMusic implements Music{
-    private List<String> list2 = new ArrayList<>();
-    {
-        list2.add("Wind cries Mary");
-        list2.add("Highway to hell");
-        list2.add("Nothing else matter");
-    }
-
 
     @Override
-    public List<String> getSongs() {
-        return list2;
+    public String getSong() {
+        return "Nothing else matter";
     }
 }
