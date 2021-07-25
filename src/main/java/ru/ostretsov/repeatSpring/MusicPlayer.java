@@ -8,7 +8,7 @@ import sun.font.DelegatingShape;
 
 import java.util.Random;
 
-@Component
+
 public class MusicPlayer {
     @Value("${musicPlayer.volume}")
     private int volume;
@@ -16,6 +16,10 @@ public class MusicPlayer {
     private String name;
 
     private ClassicalMusic classicalMusic;
+    private RockMusic rockMusic;
+    private PopMusic popMusic;
+
+
 
     public int getVolume() {
         return volume;
@@ -25,10 +29,7 @@ public class MusicPlayer {
         return name;
     }
 
-    private RockMusic rockMusic;
-    private PopMusic popMusic;
 
-    @Autowired
     public MusicPlayer(ClassicalMusic classicalMusic, RockMusic rockMusic, PopMusic popMusic) {
         this.classicalMusic = classicalMusic;
         this.rockMusic = rockMusic;
